@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frenly - AI-Powered Pet Care</title>
+    <!-- Google Fonts - Poppins with light weight included -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Full-screen background */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #6a5acd; /* Fallback color */
+            background-image: url('background-desktop.jpg'); /* Desktop background */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.7); /* Adjust for better text visibility */
+        }
+        
+        /* Mobile-specific background */
+        @media (max-width: 768px) {
+            .background {
+                background-image: url('background-mobile.jpg'); /* Mobile background */
+            }
+        }
+
+        /* Main content container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        /* Logo styling */
+        .logo {
+            max-width: 200px;
+            width: 100%;
+            height: auto; /* This preserves aspect ratio */
+            margin-bottom: 20px;
+        }
+
+        /* Slogan styling */
+        .slogan {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            white-space: nowrap; /* Ensures text stays on one line */
+        }
+
+        /* Coming soon text styling */
+        .coming-soon-text {
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* Button container */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* App store button styling */
+        .app-button {
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .app-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-button img {
+            width: 36px;
+            height: 36px;
+        }
+
+        /* Footer styling */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 12px 20px;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: 300; /* Using the lighter weight font */
+        }
+
+        .footer-links a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            font-weight: 300; /* Using the lighter weight font */
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .slogan {
+                font-size: 1.8rem;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
+            }
+
+            .footer-links {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Full-screen background -->
+    <div class="background"></div>
+    
+    <!-- Main content -->
+    <div class="container">
+        <!-- Logo - Replace the src with your actual logo -->
+        <img src="logo.png" alt="Frenly App Logo" class="logo">
+        
+        <!-- Slogan -->
+        <h1 class="slogan">AI-Powered Pet Care</h1>
+        
+        <!-- Coming soon text -->
+        <p class="coming-soon-text">coming soon to</p>
+        
+        <!-- App store buttons -->
+        <div class="button-container">
+            <a href="#" class="app-button">
+                <img src="apple-logo.png" alt="Apple App Store">
+            </a>
+            
+            <a href="#" class="app-button">
+                <img src="google-play-logo.png" alt="Google Play Store">
+            </a>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <div class="copyright">
+            &copy; 2025 The Frenly App LLC, All Rights Reserved
+        </div>
+        <div class="footer-links">
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/help-center">Help Center</a>
+        </div>
+    </div>
+
+    <script>
+        // Preload the background images
+        const preloadDesktopBackground = new Image();
+        preloadDesktopBackground.src = 'background-desktop.jpg';
+        
+        const preloadMobileBackground = new Image();
+        preloadMobileBackground.src = 'background-mobile.jpg';
+        
+        // Detect if user is on mobile and preload appropriate image first
+        if (window.innerWidth <= 768) {
+            preloadMobileBackground.onload = function() {
+                preloadDesktopBackground.src = 'background-desktop.jpg';
+            }
+        } else {
+            preloadDesktopBackground.onload = function() {
+                preloadMobileBackground.src = 'background-mobile.jpg';
+            }
+        }
+    </script>
+</body>
+</html>
